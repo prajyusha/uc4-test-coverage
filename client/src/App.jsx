@@ -119,7 +119,7 @@ export default function App() {
             setUser(account); setCart(await api('/cart')); setOrder(null); setCode(''); navigate('shop')
           }) }}>
             <label>Email<input name="email" type="email" autoComplete="username" required maxLength={254} /></label>
-            <label>Password<input name="password" type="password" autoComplete="current-password" required maxLength={200} /></label>
+            <label>Password<input name="password" type="password" autoComplete="current-password" required minLength={8} maxLength={200} /></label>
             <button className="primary" disabled={busy}>{busy ? 'Logging in…' : 'Log in →'}</button>
           </form>
           <aside className="demo"><b>Try the demo</b><p>Shopper: shopper@example.com / Shopper123!</p><p>Admin: admin@example.com / Admin123!</p><small>Demo accounts only. Do not enter real personal or payment information.</small></aside>
