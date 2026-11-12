@@ -1,0 +1,201 @@
+ID,Title,Steps,Expected Result,Module,Priority,Linked Requirement
+TC-001,Open collection as visitor,1. Open the shop in a fresh browser; 2. Wait for the collection,Products are visible without signing in,Catalog,High,REQ-001
+TC-002,Product card name,1. Open collection; 2. Inspect Everyday tote,Everyday tote name is visible,Catalog,Medium,REQ-001
+TC-003,Product descriptions,1. Browse the seeded collection; 2. Read card descriptions,Each product has its stored description,Catalog,Medium,REQ-001
+TC-004,Product category badge,1. Open collection; 2. Inspect a tote card,Accessories category is shown,Catalog,Low,REQ-001
+TC-005,Product symbol on card,1. Open collection; 2. Inspect the headphones card,The stored headphones symbol is visible,Catalog,Low,REQ-001
+TC-006,USD display on collection,1. Open collection; 2. Inspect tote price,Price is displayed as $28.00,Catalog,High,REQ-001
+TC-007,Available stock on card,1. Use fresh seeded data; 2. Open collection,Each seeded product shows 20 in stock,Catalog,Medium,REQ-001
+TC-008,Sold-out product remains listed,1. Set a product stock to zero as administrator; 2. Open collection as visitor,Product remains visible with sold-out wording,Catalog,High,REQ-001
+TC-009,Disable adding a sold-out product,1. Open a zero-stock product card; 2. Inspect its add control,Out-of-stock control is disabled,Catalog,High,REQ-001
+TC-010,Collection looks right,Open the shop and check the usual cards,,Catalog,Low,
+TC-011,Visitor collection smoke,1. Open shop while signed out; 2. Check the collection,Products can be browsed without login,Catalog,High,REQ-001
+TC-012,Collection count after product addition,1. Note collection count; 2. Add a product as admin; 3. Return to collection,Collection count includes the new product,Catalog,Medium,REQ-001
+TC-013,Search exact product name,1. Open collection; 2. Search Everyday tote,Everyday tote is included in results,Search,High,REQ-002
+TC-014,Search partial product name,1. Search head,Studio headphones is included,Search,Medium,REQ-002
+TC-015,Search description text,1. Search market days,Everyday tote is included,Search,Medium,REQ-002
+TC-016,Search category text,1. Search Electronics,Products whose searchable text contains Electronics are shown,Search,Medium,REQ-002
+TC-017,Search ignores case,1. Search TOTE,Everyday tote is included,Search,Medium,REQ-002
+TC-018,Search trims outer spaces,1. Search two spaces followed by tote followed by two spaces,Results match the search for tote,Search,Medium,REQ-002
+TC-019,Blank search restores collection,1. Search tote; 2. Clear search with All categories selected,All products are shown,Search,High,REQ-002
+TC-020,Search input length,1. Paste 101 characters into search; 2. Inspect retained value,Search input retains at most 100 characters,Search,Medium,REQ-002
+TC-021,Search API rejects oversized query,1. Send GET /api/products with q containing 101 characters,Request is refused with a search-length explanation,Search,Medium,REQ-002
+TC-022,Product search check,Try a few normal searches,,Search,Low,
+TC-023,Search tote from home,1. Open shop; 2. Enter tote into search,Only matching cards remain,Search,Medium,REQ-002
+TC-024,Search containing punctuation,1. Search a punctuation sequence absent from product text,No products found message is shown,Search,Low,REQ-002
+TC-025,Select Home category,1. Open collection; 2. Select Home,Only products in the Home category appear,Categories,High,REQ-003
+TC-026,Return to all categories,1. Select Home; 2. Select All,The category restriction is removed,Categories,Medium,REQ-003
+TC-027,Search within category,1. Select Home; 2. Search light,Desk light appears and nonmatching Home products are hidden,Categories,High,REQ-003
+TC-028,Empty combined filters,1. Select Home; 2. Search backpack,No products found message and Clear filters control appear,Categories,Medium,REQ-003
+TC-029,Clear empty filters,1. Produce no results with category and search; 2. Select Clear filters,Search becomes empty and All is selected,Categories,Medium,REQ-003
+TC-030,Matching result count,1. Select Home on fresh data; 2. Read essentials count,Count matches the two visible Home products,Categories,Low,REQ-003
+TC-031,New category is available,1. Create a product in a new category; 2. Open collection,New category appears as a selectable category,Categories,Medium,REQ-003
+TC-032,Category tab review,Click around the category tabs,Selected tab changes and cards follow the selection,Categories,Low,
+TC-033,No-results recovery check,Search something that is not there then reset,,Categories,Low,REQ-003
+TC-034,Demo sign-in guidance,1. Open login page; 2. Read demonstration guidance,Customer and administrator demo guidance is visible,Accounts,Medium,REQ-004
+TC-035,Fictional-information warning,1. Open login page; 2. Read demo notice,Notice asks users not to enter real personal or payment information,Accounts,Medium,REQ-004
+TC-036,No registration journey,1. Inspect account navigation and login page,No registration form or sign-up journey is offered,Accounts,Low,REQ-004
+TC-037,No password recovery journey,1. Inspect login page,No password recovery journey is offered,Accounts,Low,REQ-004
+TC-038,Role cannot be selected at login,1. Open login; 2. Inspect form fields,Login offers no permission-level selector,Accounts,High,REQ-004
+TC-039,Account page review,Check account options available to a normal shopper,,Accounts,Low,
+TC-040,Customer signs in,1. Open login; 2. Enter supplied customer credentials; 3. Submit,Customer identity and Log out control appear,Login,High,REQ-005
+TC-041,Administrator signs in,1. Open login; 2. Enter supplied administrator credentials; 3. Submit,Administrator is signed in successfully,Login,High,REQ-005
+TC-042,Email case is ignored,1. Enter customer email in uppercase with valid password; 2. Submit,Customer signs in,Login,Medium,REQ-005
+TC-043,Email outer spaces via API,1. Submit valid customer email with surrounding spaces to login API,Customer signs in after email trimming,Login,Medium,REQ-005
+TC-044,Malformed email,1. Enter an email without an at sign; 2. Attempt sign-in,Submission is prevented or a valid-email explanation is shown,Login,Medium,REQ-005
+TC-045,Missing email,1. Leave email blank; 2. Enter a password; 3. Submit,Sign-in does not complete and email is required,Login,Medium,REQ-005
+TC-046,Missing password,1. Enter valid email; 2. Leave password blank; 3. Submit,Sign-in does not complete and password is required,Login,High,REQ-005
+TC-047,Short password via API,1. Submit a seven-character password to login API,Request is refused with password-length guidance,Login,Medium,REQ-005
+TC-048,Whitespace-only password,1. Submit eight spaces as password to login API,Password is refused as too short after trimming,Login,Medium,REQ-005
+TC-049,Password over maximum length,1. Submit a 201-character password to login API,Password is refused with length guidance,Login,Medium,REQ-005
+TC-050,Wrong password,1. Submit valid customer email with an incorrect password of valid length,Email or password is incorrect message appears,Login,High,REQ-005
+TC-051,Unknown email,1. Submit an unknown well-formed email with a valid-length password,The same incorrect-credentials message is returned,Login,High,REQ-005
+TC-052,Login email field maximum,1. Paste 255 characters into the email field,The input retains at most 254 characters,Login,Low,REQ-005
+TC-053,Password display is masked,1. Open login; 2. Type a password,Password characters are masked on screen,Login,Medium,
+TC-054,Successful customer login smoke,1. Sign in with supplied shopper credentials,Customer returns to the shop signed in,Login,High,REQ-005
+TC-055,Login form keyboard use,1. Complete email and password using keyboard; 2. Submit with Enter,Valid credentials sign the customer in,Login,Medium,
+TC-056,Reload preserves active session,1. Sign in; 2. Reload the page within eight hours,Account remains signed in,Session,High,REQ-007
+TC-057,Logout returns to visitor state,1. Sign in; 2. Select Log out,Account identity is removed and login is offered,Session,High,REQ-007
+TC-058,Logout clears visible bag,1. Sign in and add an item; 2. Log out,Navigation no longer shows the account bag count,Session,High,REQ-007
+TC-059,Saved bag after new sign-in,1. Add an item; 2. Log out; 3. Sign in again,Previously saved item is restored,Session,High,REQ-007
+TC-060,Expired session action,1. Sign in; 2. Advance controlled environment past eight hours; 3. Change bag quantity,Action is refused and login view is shown,Session,High,REQ-007
+TC-061,Session is not sliding,1. Sign in; 2. Use the shop near expiry; 3. Request /api/me after eight hours from login,Original session is expired despite intervening use,Session,Medium,REQ-007
+TC-062,Logged-out token cannot identify account,1. Sign in and retain session cookie in QA client; 2. Log out; 3. Reuse old cookie on /api/me,Request asks the visitor to log in,Session,High,REQ-007
+TC-063,Session restoration check,Come back to the shop while still logged in,The signed-in account is restored,Session,Low,REQ-007
+TC-064,Logout notice cleanup,1. Sign in; 2. Add a product; 3. Log out,Prior account-specific success notice is no longer displayed,Session,Low,REQ-007
+TC-065,Logout and sign in again,Use the usual logout and login flow,,Session,Low,
+TC-066,Visitor bag navigation,1. Open shop signed out; 2. Select Bag,Login page is displayed,Access,High,REQ-008
+TC-067,Visitor add-to-bag navigation,1. Open shop signed out; 2. Select Add to bag for an available product,Login page is displayed,Access,High,REQ-008
+TC-068,Visitor cart API read,1. Request GET /api/cart without session cookie,Request is refused with login guidance,Access,High,REQ-008
+TC-069,Visitor cart API update,1. Request a bag quantity change without session cookie,Request is refused and bag is not changed,Access,High,REQ-008
+TC-070,Visitor checkout request,1. Request checkout without session cookie,Request is refused with login guidance,Access,High,REQ-008
+TC-071,Customer has no management navigation,1. Sign in as customer; 2. Inspect main navigation,Manage products is not offered,Access,High,REQ-008
+TC-072,Customer product creation forbidden,1. Sign in as customer; 2. Submit a valid product creation request,Administrator access is required and no product is created,Access,High,REQ-008
+TC-073,Customer product edit forbidden,1. Sign in as customer; 2. Submit an edit for an existing product,Administrator access is required and product is unchanged,Access,High,REQ-008
+TC-074,Customer product delete forbidden,1. Sign in as customer; 2. Submit a deletion request,Administrator access is required and product remains,Access,High,REQ-008
+TC-075,Administrator management navigation,1. Sign in as administrator; 2. Select Manage products,Product studio is displayed,Access,High,REQ-008
+TC-076,Interrupted add is not automatic,1. Select Add to bag as visitor; 2. Complete login; 3. Open bag,The interrupted addition has not been applied automatically,Access,Medium,REQ-008
+TC-077,Visitor administrator write forbidden,1. Submit a product creation request without signing in,Request is refused before a product is created,Access,High,REQ-008
+TC-078,First product creates saved bag,1. Sign in as customer; 2. Add an available tote; 3. Open bag,Tote is saved in the customer bag,Bag Persistence,High,REQ-009
+TC-079,Repeat addition uses one line,1. Add the same tote twice; 2. Open bag,One tote line appears with quantity two,Bag Persistence,High,REQ-009
+TC-080,Customer and admin bags are separate,1. Add a tote as customer; 2. Sign out; 3. Sign in as admin,Administrator bag does not inherit the customer tote,Bag Persistence,High,REQ-009
+TC-081,Return to customer bag,1. Prepare different bags for customer and admin; 2. Sign in again as customer,Customer sees only the customer bag,Bag Persistence,High,REQ-009
+TC-082,Reload bag contents,1. Add two different products; 2. Reload; 3. Open bag,Both saved products appear,Bag Persistence,High,REQ-009
+TC-083,Separate browser session same account,1. Save a bag as customer; 2. Sign in as customer in another browser context,The same saved bag is loaded,Bag Persistence,Medium,REQ-009
+TC-084,Existing product quantity accumulation,1. Add tote once; 2. Return to collection; 3. Add tote again,Existing tote quantity increases to two,Bag Persistence,Medium,REQ-009
+TC-085,Bag restored after logout,1. Save an item; 2. Log out and back in; 3. Open bag,The saved item remains,Bag Persistence,High,REQ-009
+TC-086,Saved bag sanity,Check that the bag is still there next time,,Bag Persistence,Low,REQ-009
+TC-087,Two-account bag walkthrough,Use both demo accounts and compare their bags,Each account sees its own bag,Bag Persistence,Medium,
+TC-088,Bag product name and symbol,1. Add a tote; 2. Open bag,The tote name and symbol are shown,Bag UI,Medium,REQ-010
+TC-089,Bag unit price,1. Add a seeded tote; 2. Open bag,The line states $28.00 each,Bag UI,High,REQ-010
+TC-090,Bag current availability,1. Add a product; 2. Open bag,Current product stock is shown beside the unit price,Bag UI,Medium,REQ-010
+TC-091,Increase bag quantity,1. Add one tote; 2. Open bag; 3. Select increase,Quantity becomes two,Bag UI,High,REQ-010
+TC-092,Decrease bag quantity,1. Prepare tote quantity two; 2. Select decrease,Quantity becomes one,Bag UI,High,REQ-010
+TC-093,Remove bag line,1. Add a tote; 2. Open bag; 3. Select Remove,Tote line is removed,Bag UI,High,REQ-010
+TC-094,Navigation count counts units,1. Add two totes and one bottle; 2. Inspect Bag count,Bag count is three rather than two,Bag UI,Medium,REQ-010
+TC-095,Continue shopping from bag,1. Open nonempty bag; 2. Select Continue shopping,Collection is displayed,Bag UI,Low,REQ-010
+TC-096,Empty bag message,1. Sign in with empty bag; 2. Open Bag,Empty bag message and Explore the collection control appear,Bag UI,Medium,REQ-010
+TC-097,Empty bag route back,1. Open empty bag; 2. Select Explore the collection,Shop collection is displayed,Bag UI,Low,REQ-010
+TC-098,Bag layout review,Look over the bag after adding a couple of items,,Bag UI,Low,
+TC-099,Line total for two totes,1. Set tote quantity to two; 2. Inspect tote line,Line total is $56.00,Bag UI,High,REQ-010
+TC-100,Zero quantity removes line,1. Save a tote; 2. Set its quantity to zero through API,The tote is removed from the bag,Quantity,High,REQ-011
+TC-101,Negative quantity rejected,1. Submit quantity minus one for an existing product,Request is rejected and saved quantity is unchanged,Quantity,High,REQ-011
+TC-102,Fractional quantity rejected,1. Submit quantity 1.5 for an existing product,Request is rejected because quantity must be a whole number,Quantity,High,REQ-011
+TC-103,Quantity 99 accepted with enough stock,1. Set product stock to 150; 2. Submit bag quantity 99,Quantity 99 is saved,Quantity,High,REQ-011
+TC-104,Quantity 100 rejected,1. Set stock to 150; 2. Submit bag quantity 100,Request is refused and prior bag is retained,Quantity,High,REQ-011
+TC-105,Quantity equal to stock,1. Set stock to three; 2. Set bag quantity to three,Quantity is accepted,Quantity,Medium,REQ-011
+TC-106,Quantity above stock,1. Set stock to three; 2. Submit bag quantity four,Only three available explanation is returned,Quantity,High,REQ-011
+TC-107,Missing product quantity change,1. Submit quantity one for a nonexistent product ID,Product not found explanation is returned,Quantity,Medium,REQ-011
+TC-108,Add does not reserve stock,1. Note stock; 2. Add two units; 3. Inspect stock from another account,Available stock has not decreased,Quantity,High,REQ-011
+TC-109,Increment disabled at stock limit,1. Set bag quantity equal to stock; 2. Inspect increase control,Increase control is disabled,Quantity,Medium,REQ-011
+TC-110,Increment disabled at 99,1. Use stock above 99; 2. Set bag quantity to 99; 3. Open bag,Increase control is disabled,Quantity,Medium,REQ-011
+TC-111,Quantity rejects string input,1. Submit quantity as JSON text rather than a number,Request is refused as an invalid integer,Quantity,Medium,REQ-011
+TC-112,Quantity controls quick check,Try plus and minus a few times,Displayed bag quantity follows the saved quantity,Quantity,Low,
+TC-113,Subtotal for multiple products,1. Add one seeded tote and one bottle; 2. Open bag,Subtotal is $52.00,Pricing,High,REQ-012
+TC-114,No discount total,1. Add one tote with no discount applied,Total equals subtotal of $28.00,Pricing,High,REQ-012
+TC-115,Current price after admin change,1. Save a tote in customer bag; 2. Change tote price to $30.00 as admin; 3. Reload customer bag,Unit price and total use $30.00,Pricing,High,REQ-012
+TC-116,Cent-level arithmetic,1. Set a product to $0.29; 2. Add three units,Line total is $0.87,Pricing,High,REQ-012
+TC-117,Totals after removing item,1. Add tote and bottle; 2. Remove bottle,Subtotal and total reduce to the tote amount,Pricing,High,REQ-012
+TC-118,Totals after quantity increase,1. Add one tote; 2. Increase quantity to two,Subtotal becomes $56.00,Pricing,High,REQ-012
+TC-119,Money formatting check,Check amounts in collection and bag,Amounts are shown in US dollars with two decimal places,Pricing,Low,
+TC-120,Totals review,Check the totals with the usual basket,,Pricing,Medium,REQ-012
+TC-121,Apply welcome discount,1. Add a $28.00 tote; 2. Apply WELCOME10,Discount is $2.80 and total is $25.20,Discounts,High,REQ-013
+TC-122,Lowercase discount,1. Add a tote; 2. Apply welcome10,The supported discount is applied,Discounts,Medium,REQ-013
+TC-123,Trim discount spaces,1. Add a tote; 2. Apply WELCOME10 with outer spaces,The supported discount is applied,Discounts,Medium,REQ-013
+TC-124,Remove discount with blank code,1. Apply WELCOME10; 2. Clear code field; 3. Apply,Discount is removed and total returns to subtotal,Discounts,High,REQ-013
+TC-125,Reject unknown discount,1. Add a tote; 2. Apply SUMMER20,Discount code is not valid explanation appears,Discounts,High,REQ-013
+TC-126,Discount code input maximum,1. Paste 41 characters into discount input,Input retains at most 40 characters,Discounts,Low,REQ-013
+TC-127,Discount API length guard,1. Request bag with a 41-character code,Request is refused as an invalid discount code,Discounts,Medium,REQ-013
+TC-128,Half-cent discount rounding,1. Use a product priced at $0.15; 2. Add one unit; 3. Apply WELCOME10,Discount rounds to $0.02 and total is $0.13,Discounts,Medium,REQ-013
+TC-129,Discount follows quantity change,1. Apply WELCOME10 to one tote; 2. Increase to two totes,Discount becomes $5.60 and total is $50.40,Discounts,High,REQ-013
+TC-130,Discount reusable after order,1. Place a discounted demo order; 2. Add another product; 3. Apply WELCOME10 again,Code is accepted for the later order,Discounts,Medium,REQ-013
+TC-131,Welcome code smoke,Apply the welcome code to a normal bag,Ten percent discount is shown,Discounts,Medium,REQ-013
+TC-132,Promotion area review,Check the welcome promotion around the shop,,Discounts,Low,
+TC-133,Free delivery summary,1. Add a tote; 2. Open bag summary,Delivery is shown as Free,Delivery,High,REQ-014
+TC-134,Free delivery for low value,1. Add a product priced at $0.01; 2. Open summary,No minimum-spend delivery charge is added,Delivery,Medium,REQ-014
+TC-135,Free delivery for large bag,1. Add several available products; 2. Inspect summary,Delivery remains free,Delivery,Medium,REQ-014
+TC-136,No tax added,1. Add a $28.00 tote without discount; 2. Inspect final total,Total remains $28.00 with no tax added,Delivery,High,REQ-014
+TC-137,No currency choice,1. Inspect shop and bag controls,No currency conversion option is offered,Delivery,Low,REQ-014
+TC-138,No shipping scheduler,1. Open checkout details,No carrier or delivery-date selection is required,Delivery,Low,REQ-014
+TC-139,Delivery promise review,Check the free-delivery wording in the page header,Free-delivery wording is visible,Delivery,Low,
+TC-140,Accept delivery details,1. Add a tote; 2. Enter fictional full name and address; 3. Place demo order,Valid details allow checkout to proceed,Checkout Details,High,REQ-015
+TC-141,Missing full name,1. Open checkout with items; 2. Leave name blank; 3. Attempt order,Name is required and no order is accepted,Checkout Details,High,REQ-015
+TC-142,Missing delivery address,1. Enter a name but leave address blank; 2. Attempt order,Address is required and no order is accepted,Checkout Details,High,REQ-015
+TC-143,Whitespace name via API,1. Submit checkout with name containing only spaces,Name is refused as required,Checkout Details,Medium,REQ-015
+TC-144,Whitespace address via API,1. Submit checkout with address containing only spaces,Address is refused as required,Checkout Details,Medium,REQ-015
+TC-145,Full name maximum accepted,1. Prepare a nonempty bag; 2. Submit a fictional 100-character name and valid address,Name passes length validation,Checkout Details,Medium,REQ-015
+TC-146,Full name too long,1. Submit a fictional 101-character trimmed name with valid address,Checkout is refused with name-length guidance,Checkout Details,Medium,REQ-015
+TC-147,Address maximum accepted,1. Prepare a nonempty bag; 2. Submit a fictional 500-character address and valid name,Address passes length validation,Checkout Details,Medium,REQ-015
+TC-148,Address too long,1. Submit a fictional 501-character trimmed address with valid name,Checkout is refused with address-length guidance,Checkout Details,Medium,REQ-015
+TC-149,Delivery form review,Fill out the address form as normal,,Checkout Details,Low,
+TC-150,Checkout rejects empty bag,1. Sign in with empty bag; 2. Submit valid checkout details through API,Empty bag explanation is returned and no order is created,Checkout Validation,High,REQ-016
+TC-151,Checkout rechecks discount,1. Save a nonempty bag; 2. Submit checkout with an invalid code,Order is rejected and bag remains,Checkout Validation,High,REQ-016
+TC-152,Stock reduced before checkout,1. Save two totes; 2. Reduce tote stock to one as admin; 3. Submit checkout,Insufficient stock explanation is returned,Checkout Validation,High,REQ-016
+TC-153,Rejected checkout preserves bag,1. Trigger insufficient stock at checkout; 2. Reload bag,Saved product and quantity are retained,Checkout Validation,High,REQ-016
+TC-154,Rejected checkout preserves stock,1. Record stock; 2. Submit checkout with invalid discount; 3. Inspect stock,Stock is unchanged,Checkout Validation,High,REQ-016
+TC-155,Checkout uses latest price,1. Save a tote; 2. Update price as admin; 3. Submit customer order,Accepted total uses the updated product price,Checkout Validation,High,REQ-016
+TC-156,Customer supplied total is ignored,1. Submit a valid checkout with an extra totalCents field set to one,Order amount is calculated from current products rather than the supplied total,Checkout Validation,High,REQ-016
+TC-157,Stock conflict review,Try checkout after somebody changes availability,Shop explains the stock conflict and does not place an order,Checkout Validation,Medium,REQ-016
+TC-158,All lines checked before stock deduction,1. Save two products; 2. Make the second insufficient; 3. Submit checkout,Order is refused and neither product stock is deducted,Checkout Validation,High,REQ-016
+TC-159,Order reference assigned,1. Complete a valid demo checkout; 2. Inspect returned order,Order has a unique reference,Orders,High,REQ-017
+TC-160,Order creation time recorded,1. Complete checkout; 2. Inspect order record in disposable shop storage,Creation time is recorded for the accepted order,Orders,Medium,REQ-017
+TC-161,Order stores delivery details,1. Place order with fictional name and address; 2. Inspect saved order,Saved order includes the account and submitted delivery details,Orders,High,REQ-017
+TC-162,Successful order deducts stock,1. Note tote stock; 2. Order two totes; 3. Inspect stock,Stock falls by exactly two,Orders,High,REQ-017
+TC-163,Successful order clears bag,1. Place a valid order; 2. Read saved customer bag,Bag is empty after acceptance,Orders,High,REQ-017
+TC-164,Order snapshot survives later price edit,1. Place an order; 2. Change product price; 3. Inspect prior order,Prior order retains its original ordered price and total,Orders,High,REQ-017
+TC-165,Order save failure is all-or-nothing,1. In disposable environment prevent storage replacement; 2. Attempt valid checkout; 3. Inspect accepted state,No new order or stock deduction or bag clearing is accepted,Orders,High,REQ-017
+TC-166,Confirmation thanks customer,1. Place order using a fictional name,Confirmation thanks the customer using that name,Confirmation,Medium,REQ-018
+TC-167,Short order reference shown,1. Place order; 2. Compare confirmation with returned order ID,Confirmation shows the first eight characters of the order reference,Confirmation,Medium,REQ-018
+TC-168,Confirmation total,1. Order one tote with WELCOME10,Confirmation shows $25.20,Confirmation,High,REQ-018
+TC-169,No payment taken notice,1. Complete a demo order,Confirmation explicitly states no payment was taken,Confirmation,High,REQ-018
+TC-170,No card collection,1. Open checkout and complete an order,No card or payment information is requested,Confirmation,High,REQ-018
+TC-171,Continue after confirmation,1. Complete checkout; 2. Select Continue shopping,Collection is displayed,Confirmation,Low,REQ-018
+TC-172,No order-history navigation,1. Complete checkout; 2. Inspect signed-in navigation,No order-history interface is offered,Confirmation,Low,REQ-018
+TC-173,Confirmation reload limitation,1. Complete order; 2. Reload page; 3. Open bag,Immediate confirmation is not restored as order history,Confirmation,Medium,REQ-018
+TC-174,Create a product,1. Sign in as admin; 2. Complete valid new-product fields; 3. Save,New product appears in product studio and collection,Product Admin,High,REQ-019
+TC-175,Edit product details,1. Select Edit on a product; 2. Change description; 3. Save,Updated description is displayed,Product Admin,High,REQ-019
+TC-176,Cancel editing,1. Select Edit; 2. Change a field; 3. Cancel editing,Unsaved edit is discarded and add-product form is restored,Product Admin,Medium,REQ-019
+TC-177,Save product notice,1. Save a valid new product,Product saved notice appears,Product Admin,Low,REQ-019
+TC-178,Product studio smoke,Add something and change it afterwards,,Product Admin,Medium,REQ-019
+TC-179,Required product text,1. Clear product name; 2. Attempt save,Product is not saved without a name,Product Validation,High,REQ-020
+TC-180,Product name too long via API,1. Submit a product with a 101-character trimmed name,Name-length explanation is returned,Product Validation,Medium,REQ-020
+TC-181,Description too long via API,1. Submit a product with a 1001-character trimmed description,Description-length explanation is returned,Product Validation,Medium,REQ-020
+TC-182,Category text maximum,1. Submit valid product with a 40-character category; 2. Repeat with 41 characters,First category is accepted and second is refused,Product Validation,Medium,REQ-020
+TC-183,Product symbol length,1. Submit a product with a nine-position text symbol,Symbol is refused for exceeding eight text positions,Product Validation,Low,REQ-020
+TC-184,Minimum product price,1. Create a valid product priced at $0.01,Product is accepted at one cent,Inventory,High,REQ-021
+TC-185,Zero product price,1. Submit valid product fields with priceCents zero,Price is refused,Inventory,High,REQ-021
+TC-186,Maximum product price,1. Submit valid product at 10000000 cents; 2. Repeat at 10000001 cents,Maximum is accepted and the larger value is refused,Inventory,Medium,REQ-021
+TC-187,Stock limits,1. Submit stock zero; 2. Submit stock 10000; 3. Submit stock 10001,Zero and 10000 are accepted while 10001 is refused,Inventory,High,REQ-021
+TC-188,Fractional stock rejected,1. Submit a product with stock 1.5,Stock is refused because a whole number is required,Inventory,Medium,REQ-021
+TC-189,Delete confirmation cancel,1. Select Delete on a product; 2. Cancel the confirmation,Product remains in the collection,Product Deletion,High,REQ-022
+TC-190,Delete confirmed product,1. Select Delete; 2. Confirm deletion,Product is removed from collection and product studio,Product Deletion,High,REQ-022
+TC-191,Delete removes product from bags,1. Save same product in both demo account bags; 2. Delete product as admin,Product is removed from both saved bags,Product Deletion,High,REQ-022
+TC-192,Deleted product retained in old order,1. Place an order; 2. Delete ordered product; 3. Inspect saved order,Earlier order snapshot is unchanged,Product Deletion,High,REQ-022
+TC-193,Delete missing product,1. Delete a product; 2. Repeat deletion request using its old ID,Product not found explanation is returned,Product Deletion,Medium,REQ-022
+TC-194,Dismiss an error message,1. Trigger invalid discount error; 2. Select dismiss control,Error banner disappears,Feedback,Low,REQ-023
+TC-195,Busy action controls,1. Slow network in browser tools; 2. Submit login; 3. Inspect action controls,Relevant action controls are disabled during the operation,Feedback,Medium,REQ-023
+TC-196,Unexpected service error wording,1. In disposable environment force an unexpected storage failure; 2. Submit a write,General retry message appears without internal error details,Feedback,High,REQ-023
+TC-197,Loading message review,Open the shop on a slow connection,,Feedback,Low,REQ-023
+TC-198,Session cookie restrictions,1. Sign in; 2. Inspect cookie attributes; 3. Repeat over HTTPS in production mode,Session cookie has HttpOnly and SameSite Strict with Secure in production,Request Safeguards,High,REQ-024
+TC-199,Reject cross-host write,1. Send a write request with Origin host different from the shop host,Request is rejected with cross-origin explanation,Request Safeguards,High,REQ-024
+TC-200,Malformed and oversized request bodies,1. Send malformed JSON to login; 2. Send a JSON body larger than 16 KB,Malformed input is rejected and oversized input receives a request-too-large response,Request Safeguards,High,REQ-024
