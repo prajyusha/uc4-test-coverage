@@ -3,6 +3,9 @@
 A small React storefront with a Node/Express API: login, searchable products,
 persistent per-user carts, discount checkout, and administrator product management.
 
+The separate [C ring buffer component](embedded/ring_buffer/README.md) has its
+own build, checks, and gcov/LCOV reports under `embedded/ring_buffer/`.
+
 ## Run locally
 
 Requires Node.js 18.20.8 or newer and npm.
