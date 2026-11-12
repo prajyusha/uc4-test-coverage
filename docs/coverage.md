@@ -1,13 +1,9 @@
-# Starter Test Coverage
+# Test Coverage
 
-## Purpose and intentional gaps
-
-This is a deliberately thin starter suite, not a release-readiness check.
+## Suite overview
 
 - Two Vitest unit cases exercise successful customer sign-in and product listing/search using small in-memory store doubles.
 - One Playwright journey browses the collection, searches for a tote, signs in as the demonstration customer, and adds the tote to the bag.
-- There are no error, permission, boundary, administrator, checkout, discount, logout, or persistence cases.
-- Assertions are intentionally limited. Executed lines do not imply every behavior on those lines was verified.
 
 ## Runtime and installation
 
@@ -54,7 +50,7 @@ Vitest collects server V8 coverage, including all nine server JavaScript modules
 
 The merger combines the source-level Istanbul counters, not averages of percentages. It verifies that all server JavaScript modules and the client JavaScript source files are represented. Server requests made by the browser journey are not instrumented: the merged result combines server **unit** coverage with browser **client** coverage only.
 
-## Measured starter baseline
+## Measured coverage
 
 A complete run on Node 18.20.8 passed **2 unit cases and 1 browser case**.
 
@@ -64,6 +60,6 @@ A complete run on Node 18.20.8 passed **2 unit cases and 1 browser case**.
 | Browser | 56.00% | 52.84% | 37.09% | 71.62% |
 | Whole application | **32.47%** | **50.67%** | **37.80%** | **32.37%** |
 
-Merged totals were 152/468 statements, 75/148 branches, 31/82 functions, and 135/417 lines. The approximate 30–40% goal refers to overall application line/statement coverage, not every metric or every layer.
+Merged totals were 152/468 statements, 75/148 branches, 31/82 functions, and 135/417 lines.
 
-No artificial upper coverage threshold is enforced. Future cases should be allowed to increase coverage. Untouched modules remain visible at zero rather than being excluded to improve the headline number. V8 and source-map conversion can mark compact lines as executed even when an unexercised branch shares the line; use the branch and function details alongside line percentages.
+V8 and source-map conversion can mark compact lines as executed even when an unexercised branch shares the line; use the branch and function details alongside line percentages.

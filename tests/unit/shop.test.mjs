@@ -13,7 +13,7 @@ function storeFor(state) {
   return { read: () => state, change: operation => operation(state) }
 }
 
-describe('starter shop happy paths', () => {
+describe('shop service', () => {
   it('signs in an existing customer', () => {
     const auth = createAuth(storeFor({
       users: [{ id: 'shopper', email: 'shopper@example.com', role: 'customer', password: hash('Shopper123!') }],
