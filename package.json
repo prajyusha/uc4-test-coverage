@@ -1,0 +1,27 @@
+{
+  "name": "common-ground-coverage",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=18.20.8" },
+  "overrides": {
+    "test-exclude": "7.0.1"
+  },
+  "scripts": {
+    "test": "npm run coverage",
+    "test:unit": "vitest run --coverage",
+    "test:e2e": "npm run build:coverage && playwright test",
+    "test:e2e:install": "playwright install chromium",
+    "build:coverage": "npm --prefix client run build -- --sourcemap --minify false",
+    "coverage": "node utils/clean-coverage.cjs && npm run test:unit && npm run test:e2e && npm run coverage:merge",
+    "coverage:merge": "node utils/merge-coverage.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.51.1",
+    "@vitest/coverage-v8": "2.1.9",
+    "istanbul-lib-coverage": "3.2.2",
+    "istanbul-lib-report": "3.0.1",
+    "istanbul-reports": "3.1.7",
+    "monocart-coverage-reports": "2.12.1",
+    "vitest": "2.1.9"
+  }
+}

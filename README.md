@@ -30,7 +30,17 @@ subtotal by 10%; delivery is free. No payment information is collected.
 
 `createShop(filename)` accepts a storage filename for isolated use later.
 `createApp(shop)` accepts a service instance. Importing either module does not
-start a listener. No test suite has been added.
+start a listener.
+
+## Starter test coverage
+
+The repository includes a deliberately thin Vitest server suite and a Node-based
+Playwright Chromium journey with Monocart browser coverage. From the repository
+root, install dependencies with `npm ci`, install the app dependencies in `client`
+and `server`, and install Chromium with `npm run test:e2e:install`.
+Run `CI=true npm run coverage` to generate unit, browser, and merged LCOV and HTML
+reports under `coverage/`. See [Starter Test Coverage](docs/coverage.md) for exact
+commands, the measured baseline, and intentional gaps.
 
 ## Behavior and safeguards
 
@@ -70,4 +80,5 @@ provisioning and payment provider before accepting real orders.
   malformed JSON and cross-origin writes.
 - Mobile shop/admin overflow check at 390px and browser JavaScript error monitoring.
 
-These were ad hoc verification commands, not a committed automated test suite.
+The checks in this section were earlier ad hoc verification commands. They are
+not the scope of the intentionally limited committed starter suite described above.
